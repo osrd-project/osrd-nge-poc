@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "files": [
+    "src/main.ts",
+    "./node_modules/netzgrafik-frontend/src/polyfills.ts"
+  ],
+  "include": [
+    "./node_modules/netzgrafik-frontend/src/**/*.ts",
+    "./node_modules/netzgrafik-frontend/src/**/*.d.ts"
+  ],
+ "exclude": [
+    "./node_modules/netzgrafik-frontend/src/**/*.spec.ts"
+  ]
+}

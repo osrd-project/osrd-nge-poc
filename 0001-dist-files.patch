@@ -1,0 +1,14 @@
+diff --git a/package.json b/package.json
+index bc1d4b7..13153fc 100644
+--- a/package.json
++++ b/package.json
+@@ -15,9 +15,6 @@
+   },
+   "name": "netzgrafik-frontend",
+   "version": "2.5.0",
+-  "files": [
+-    "dist/*"
+-  ],
+   "dependencies": {
+     "@angular/animations": "^17.0.5",
+     "@angular/cdk": "^17.0.1",

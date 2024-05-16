@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng run netzgrafik-frontend:ngsscbuild"
+  },
+  "name": "osrd-nge",
+  "version": "2.5.0",
+  "dependencies": {
+    "netzgrafik-frontend": "file:./netzgrafik-editor-frontend"
+  }
+}
