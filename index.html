@@ -30,7 +30,17 @@ function NGERoot() {
 
 	React.useEffect(() => {
 		const frame = frameRef.current;
-		console.log('mount', frame);
+
+		function handleFrameLoad() {
+			frame.removeEventListener('load', handleFrameLoad);
+
+			const ngeRoot = frame.contentDocument.createElement('sbb-root');
+			ngeRoot.foo = { version: "Hello from the outside" };
+			frame.contentDocument.body.appendChild(ngeRoot);
+		}
+
+		frame.addEventListener('load', handleFrameLoad);
+
 		return () => {
 			console.log('unmount');
 		};
