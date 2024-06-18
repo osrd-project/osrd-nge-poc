@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>NGE inside React</title>
+
+	<style>
+	iframe {
+		position: absolute;
+		width: 500px;
+		height: 500px;
+		border: 1px solid pink;
+	}
+	</style>
+</head>
+
+<body>
+
+<h1>NGE inside React</h1>
+
+<div id="react-root"></div>
+
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+
+<script>
+function NGERoot() {
+	const frameRef = React.useRef(null);
+
+	React.useEffect(() => {
+		const frame = frameRef.current;
+		console.log('mount', frame);
+		return () => {
+			console.log('unmount');
+		};
+	}, []);
+
+	return React.createElement('iframe', { ref: frameRef, src: 'frame.html' }, null);
+}
+
+const reactRoot = ReactDOM.createRoot(document.getElementById('react-root'));
+reactRoot.render(React.createElement(NGERoot));
+</script>
+
+</body>
+
+</html>
