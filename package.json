@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build"
+  },
+  "dependencies": {
+    "netzgrafik-frontend": "file:netzgrafik-editor-frontend",
+    "nge-custom-element": "file:nge-custom-element/dist/nge-custom-element",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@angular/cli": "^18.0.3"
+  }
+}

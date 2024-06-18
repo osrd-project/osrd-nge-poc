@@ -1,0 +1,4 @@
+[submodule "netzgrafik-editor-frontend"]
+	path = netzgrafik-editor-frontend
+	url = https://github.com/emersion/netzgrafik-editor-frontend
+	branch = custom-element-standalone

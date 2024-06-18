@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>NGE inside React</title>
+
+	<link rel="stylesheet" href="netzgrafik-editor-frontend/dist/netzgrafik-frontend/en/styles.css"></head>
+
+	<script type="module" src="netzgrafik-editor-frontend/dist/netzgrafik-frontend/en/runtime.js"></script>
+	<script type="module" src="netzgrafik-editor-frontend/dist/netzgrafik-frontend/en/polyfills.js"></script>
+	<script type="module" src="netzgrafik-editor-frontend/dist/netzgrafik-frontend/en/vendor.js"></script>
+	<script type="module" src="netzgrafik-editor-frontend/dist/netzgrafik-frontend/en/main.js"></script>
+
+	<style>
+	#react-root {
+		position: absolute;
+		width: 500px;
+		height: 500px;
+		border: 1px solid pink;
+	}
+	#react-root .sbb-header-lean {
+		position: static;
+	}
+	</style>
+
+</head>
+
+<body>
+
+<h1>NGE inside React</h1>
+
+<div>
+	<!--<style>
+		@scope {
+			@import "netzgrafik-editor-frontend/dist/netzgrafik-frontend/en/styles.css";
+		}
+	</style>-->
+	<div id="react-root"></div>
+</div>
+
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+
+<script>
+class Hello extends React.Component {
+	render() {
+		return React.createElement('sbb-root', null, null);
+	}
+}
+
+const reactRoot = ReactDOM.createRoot(document.getElementById('react-root'));
+reactRoot.render(React.createElement(Hello, null, null));
+</script>
+
+</body>
+
+</html>
