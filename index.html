@@ -25,6 +25,49 @@
 <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
 
 <script>
+const demoNode = {
+	"id": 0,
+	"betriebspunktName": "COUCOU",
+	"fullName": "Bern",
+	"positionX": 42,
+	"positionY": 42,
+	"ports": [],
+	"transitions": [],
+	"connections": [],
+	"resourceId": 1,
+	"perronkanten": 10,
+	"connectionTime": 5,
+	"trainrunCategoryHaltezeiten": {
+		"HaltezeitIPV": {
+			"haltezeit": 3,
+			"no_halt": false
+		},
+		"HaltezeitA": {
+			"haltezeit": 2,
+			"no_halt": false
+		},
+		"HaltezeitB": {
+			"haltezeit": 2,
+			"no_halt": false
+		},
+		"HaltezeitC": {
+			"haltezeit": 1,
+			"no_halt": false
+		},
+		"HaltezeitD": {
+			"haltezeit": 1,
+			"no_halt": false
+		},
+		"HaltezeitUncategorized": {
+			"haltezeit": 0,
+			"no_halt": true
+		}
+	},
+	"symmetryAxis": 0,
+	"warnings": null,
+	"labelIds": []
+};
+
 function NGERoot() {
 	const frameRef = React.useRef(null);
 
@@ -35,8 +78,20 @@ function NGERoot() {
 			frame.removeEventListener('load', handleFrameLoad);
 
 			const ngeRoot = frame.contentDocument.createElement('sbb-root');
-			ngeRoot.foo = { version: "Hello from the outside" };
+			//ngeRoot.foo = { version: "Hello from the outside" };
 			frame.contentDocument.body.appendChild(ngeRoot);
+
+			ngeRoot.addEventListener('trainrunOperation', (event) => {
+				console.log('trainrunOperation', event.detail);
+			});
+
+			ngeRoot.addEventListener('trainrunSectionOperation', (event) => {
+				console.log('trainrunSectionOperation', event.detail);
+			});
+
+			let netzgrafikDto = ngeRoot.netzgrafikDto;
+			netzgrafikDto.nodes = [demoNode];
+			ngeRoot.netzgrafikDto = netzgrafikDto;
 		}
 
 		frame.addEventListener('load', handleFrameLoad);

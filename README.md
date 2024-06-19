@@ -4,8 +4,21 @@ Proof of concept to integrate NGE with an external webapp such as OSRD.
 
 ## Setup
 
-```
+If [netzgrafik-editor-frontend](ttps://github.com/osrd-project/netzgrafik-editor-frontend.git) is not already installed:
+
+```bash
 git clone --branch custom-element https://github.com/osrd-project/netzgrafik-editor-frontend.git
+```
+
+else, add symbolic link to directory:
+
+```bash
+ln -s <path to netzgrafik-editor-frontend> netzgrafik-editor-frontend
+```
+
+then:
+
+```bash
 cd netzgrafik-editor-frontend
 npm install
 npm run build
@@ -14,6 +27,8 @@ cd ..
 npm install
 python -m http.server
 ```
+
+Open [http://localhost:8000](http://localhost:8000) in a browser.
 
 ## Design decisions
 
