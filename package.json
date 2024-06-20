@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@osrd-project/netzgrafik-frontend": "0.0.0+7d878c09dc80374d5c1d289ff7211971d846b5f4"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
