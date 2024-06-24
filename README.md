@@ -6,8 +6,9 @@ Proof of concept to integrate NGE with an external webapp such as OSRD.
 
 For development:
 
-    npm install
     npm run dev
+
+Open [http://localhost:5173/](http://localhost:5173/) with your favorite browser.
 
 ### Working on the PoC and NGE in parallel
 
@@ -20,7 +21,7 @@ If you don't have NGE cloned yet:
 
 Then update the NGE dependency to point to your local copy:
 
-    npm install @osrd-project/netzgrafik-frontend@file:./netzgrafik-editor-frontend/
+    npm link ./netzgrafik-editor-frontend
 
 ## Design decisions
 

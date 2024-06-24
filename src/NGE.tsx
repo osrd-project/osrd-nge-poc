@@ -22,6 +22,93 @@ const frameSrc = `
 </html>
 `;
 
+const testNodesDto = [
+  {
+    "id": 1,
+    "betriebspunktName": "OSRD",
+    "fullName": "SNCF main station",
+    "positionX": 42,
+    "positionY": 42,
+    "ports": [],
+    "transitions": [],
+    "connections": [],
+    "resourceId": 1,
+    "perronkanten": 10,
+    "connectionTime": 5,
+    "trainrunCategoryHaltezeiten": {
+      "HaltezeitIPV": {
+        "haltezeit": 3,
+        "no_halt": false
+      },
+      "HaltezeitA": {
+        "haltezeit": 2,
+        "no_halt": false
+      },
+      "HaltezeitB": {
+        "haltezeit": 2,
+        "no_halt": false
+      },
+      "HaltezeitC": {
+        "haltezeit": 1,
+        "no_halt": false
+      },
+      "HaltezeitD": {
+        "haltezeit": 1,
+        "no_halt": false
+      },
+      "HaltezeitUncategorized": {
+        "haltezeit": 0,
+        "no_halt": true
+      }
+    },
+    "symmetryAxis": 0,
+    "warnings": null,
+    "labelIds": []
+  },
+  {
+    "id": 2,
+    "betriebspunktName": "NGE",
+    "fullName": "SBB main station",
+    "positionX": 700,
+    "positionY": 250,
+    "ports": [],
+    "transitions": [],
+    "connections": [],
+    "resourceId": 1,
+    "perronkanten": 10,
+    "connectionTime": 5,
+    "trainrunCategoryHaltezeiten": {
+      "HaltezeitIPV": {
+        "haltezeit": 3,
+        "no_halt": false
+      },
+      "HaltezeitA": {
+        "haltezeit": 2,
+        "no_halt": false
+      },
+      "HaltezeitB": {
+        "haltezeit": 2,
+        "no_halt": false
+      },
+      "HaltezeitC": {
+        "haltezeit": 1,
+        "no_halt": false
+      },
+      "HaltezeitD": {
+        "haltezeit": 1,
+        "no_halt": false
+      },
+      "HaltezeitUncategorized": {
+        "haltezeit": 0,
+        "no_halt": true
+      }
+    },
+    "symmetryAxis": 0,
+    "warnings": null,
+    "labelIds": []
+  }
+];
+
 function NGE() {
   const frameRef = useRef(null);
 
@@ -33,6 +120,23 @@ function NGE() {
 
       const ngeRoot = frame.contentDocument.createElement('sbb-root');
       frame.contentDocument.body.appendChild(ngeRoot);
+
+      // listens to create and update operations
+      ngeRoot.addEventListener('trainrunSectionOperation', (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log('TrainrunSectionOperation received', event.detail);
+      });
+
+      // listens to delete operation
+      ngeRoot.addEventListener('trainrunOperation', (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log('TrainrunOperation received', event.detail);
+      });
+
+      // get netzgrafik model from NGE
+      let netzgrafikDto = ngeRoot.netzgrafikDto;
+
+      // set new netzgrafik model with new nodes
+      netzgrafikDto.nodes = testNodesDto;
+      ngeRoot.netzgrafikDto = netzgrafikDto;
     }
 
     frame.addEventListener('load', handleFrameLoad);
