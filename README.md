@@ -2,6 +2,13 @@
 
 Proof of concept to integrate NGE with an external webapp such as OSRD.
 
+This branch contains the React + TypeScript PoC. Previous work includes:
+
+- `multun` branch: out-of-tree NGE build customizations
+- `custom-element` branch: basic pure JS version
+- `custom-element-standalone` branch: attempt at making NGE a completely
+  self-contained component without an `<iframe>`
+
 ## Setup
 
 For development:
