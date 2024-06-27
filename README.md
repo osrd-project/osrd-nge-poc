@@ -23,7 +23,7 @@ If you don't have NGE cloned yet:
 
     git clone --branch custom-element https://github.com/osrd-project/netzgrafik-editor-frontend.git
     cd netzgrafik-editor-frontend
-    npm run build
+    npm run build:standalone
     cd ..
 
 Then update the NGE dependency to point to your local copy:
