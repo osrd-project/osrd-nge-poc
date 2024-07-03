@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@osrd-project/netzgrafik-frontend": "0.0.0-snapshot.2fce4c58e0654ac01e0cc83ea633612719ee2d49",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@osrd-project/netzgrafik-frontend": "0.0.0+7d878c09dc80374d5c1d289ff7211971d846b5f4"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

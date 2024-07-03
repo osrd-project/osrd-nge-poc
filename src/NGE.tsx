@@ -121,14 +121,9 @@ function NGE() {
       const ngeRoot = frame.contentDocument.createElement('sbb-root');
       frame.contentDocument.body.appendChild(ngeRoot);
 
-      // listens to create and update operations
-      ngeRoot.addEventListener('trainrunSectionOperation', (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log('TrainrunSectionOperation received', event.detail);
-      });
-
-      // listens to delete operation
-      ngeRoot.addEventListener('trainrunOperation', (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log('TrainrunOperation received', event.detail);
+      // listens to create, update and delete operations
+      ngeRoot.addEventListener('operation', (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log('Operation received', event.detail);
       });
 
       // get netzgrafik model from NGE
