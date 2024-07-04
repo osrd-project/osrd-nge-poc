@@ -132,6 +132,14 @@ function NGE() {
       // set new netzgrafik model with new nodes
       netzgrafikDto.nodes = testNodesDto;
       ngeRoot.netzgrafikDto = netzgrafikDto;
+
+      window.GET = () => ngeRoot.netzgrafikDto;
+
+      window.SET = (nodes) => {
+        let netzgrafikDto = ngeRoot.netzgrafikDto;
+        netzgrafikDto.nodes = nodes;
+        ngeRoot.netzgrafikDto = netzgrafikDto;
+      };
     }
 
     frame.addEventListener('load', handleFrameLoad);
